@@ -1,0 +1,103 @@
+/* Apply styles universally to all elements */
+* {
+  height: 100%;          /* Make all elements fill 100% of the height of their parent container */
+  width: 100%;           /* Make all elements fill 100% of the width of their parent container */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  transition: 0.5s;      /* Smooth transition effect for any changes over 0.5 seconds */
+}
+
+/* Style for all SVG elements */
+svg {
+  width: 80px;           /* Set the width of SVG elements to 80px */
+  position: absolute;    /* Position SVG elements absolutely */
+}
+
+/* Hide the input checkbox element */
+input {
+  display: none;         /* Hide the checkbox input element */
+}
+
+/* Style for the display container */
+.display {
+  width: 100%;           /* Full width of its parent container */
+  height: 100%;          /* Full height of its parent container */
+  display: flex;         /* Use flexbox layout */
+  align-items: center;   /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  background: rgb(255, 255, 255); /* White background color */
+}
+
+/* Style for the label (used as a clickable button) */
+label {
+  width: 400px;          /* Set the width of the label */
+  height: 200px;         /* Set the height of the label */
+  border-radius: 999px;  /* Make the label's corners fully rounded (ellipse) */
+  background: #f3f3f3;   /* Light grey background color */
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5) inset; /* Inner shadow for a 3D effect */
+  cursor: pointer;      /* Change cursor to pointer when hovering over the label */
+  position: relative;    /* Position the label relative to its normal position */
+}
+
+/* Style for the circle inside the label */
+.circle {
+  width: 160px;          /* Set the width of the circle */
+  height: 160px;         /* Set the height of the circle */
+  border-radius: 99px;   /* Make the circle fully rounded */
+  background: white;     /* White background for the circle */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),   /* Outer shadow for the circle */
+    -10px -10px -30px rgba(0, 0, 0, 0.5) inset;  /* Inner shadow for a 3D effect */
+  position: absolute;    /* Position circle absolutely inside the label */
+  top: 50%;              /* Vertically center the circle */
+  left: 0%;              /* Start at the left edge of the label */
+  transform: translate(10%, -50%); /* Adjust position to center circle */
+  display: flex;         /* Use flexbox to center content inside the circle */
+  align-items: center;   /* Vertically center inner content */
+  justify-content: center; /* Horizontally center inner content */
+  overflow: hidden;      /* Hide any content that goes outside the circle */
+}
+
+/* Style for the sun element inside the circle */
+.sun {
+  color: rgb(245, 120, 37); /* Set the sun's color to orange */
+  margin-top: 0%;          /* No margin above the sun */
+  opacity: 1;              /* Fully visible */
+}
+
+/* Style for the moon element inside the circle */
+.moon {
+  color: white;           /* Set the moon's color to white */
+  margin-top: -150%;       /* Push the moon upwards so it's initially hidden */
+}
+
+/* Style for when the checkbox is checked */
+input[type=checkbox]:checked + .display {
+  background: #2d2d3b;    /* Dark background when checkbox is checked */
+}
+
+/* Style for when the checkbox is checked and the circle moves */
+input[type=checkbox]:checked + .display label .circle {
+  left: 100%;             /* Move the circle to the far right */
+  transform: translate(-110%, -50%); /* Adjust the position to fit */
+  background: #28282cd5;  /* Change the circle's background color to dark */
+}
+
+/* Change the label's background when the checkbox is checked */
+input[type=checkbox]:checked + .display label {
+  background: #1f1f1f;    /* Darker background for the label */
+}
+
+/* Hide the sun and show the moon when checkbox is checked */
+input[type=checkbox]:checked + .display label .circle .sun {
+  margin-top: 150%;       /* Push the sun out of view */
+  opacity: 0;             /* Make the sun fully transparent */
+}
+
+input[type=checkbox]:checked + .display label .circle .moon {
+  margin-top: 0%;         /* Bring the moon into view */
+  opacity: 1;             /* Make the moon fully visible */
+}
+
+/* Increase the size of the circle when the label is clicked */
+label:active .circle {
+  width: 180px;           /* Increase the width of the circle */
+}
