@@ -24,7 +24,7 @@ input {
   display: flex;         /* Use flexbox layout */
   align-items: center;   /* Vertically center the content */
   justify-content: center; /* Horizontally center the content */
-  background: rgb(255, 255, 255); /* White background color */
+  background: rgba(255, 255, 255, 0.884); /* White background color */
 }
 
 /* Style for the label (used as a clickable button) */
